@@ -1,9 +1,13 @@
-import java.util.Stack;
-
-public class Main {
-    public static void main(String[] args) {
-        String expression = "2+3*4";
-        String postfix = infixToPostfix(expression);
-        System.out.println("Postfix Expression: " + postfix);
-        System.out.println("Evaluation: " + evaluatePostfix(postfix));
+private static int precedence(char ch) {
+        switch (ch) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+            case '^':
+                return 3;
+        }
+        return -1;
     }
