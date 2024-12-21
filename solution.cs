@@ -1,13 +1,17 @@
-using System;
-using System.Collections.Generic;
-
-class Program
-{
-    static void Main(string[] args)
+static int Precedence(char ch)
     {
-        Console.WriteLine("Enter infix expression");
-        string infix = Console.ReadLine();
-        string postfix = InfixToPostfix(infix);
-        Console.WriteLine("Postfix expression: " + postfix);
-        Console.WriteLine("Evaluation: " + EvaluatePostfix(postfix));
+        switch (ch)
+        {
+            case '+':
+            case '-':
+                return 1;
+
+            case '*':
+            case '/':
+                return 2;
+
+            case '^':
+                return 3;
+        }
+        return -1;
     }
